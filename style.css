@@ -59,9 +59,11 @@ body {
   grid-template-columns: repeat(4, 1fr);
   gap: 25px;
   margin-top: 40px;
+  padding: 0 40px; /* adds space at the edges */
   width: 100%;
-  max-width: 1200px;
+  box-sizing: border-box;
 }
+
 
 @media (max-width: 1024px) {
   .card-grid {
