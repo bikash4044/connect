@@ -75,6 +75,14 @@ body {
   }
 }
 
+
+@media only screen and (max-width: 768px) {
+    body {
+        background-image: url('images/bg2.png');
+    }
+}
+
+
 /* ---------- Flip Card Design ---------- */
 .flip-card {
   background-color: transparent;
