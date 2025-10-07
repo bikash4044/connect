@@ -8,118 +8,428 @@
       href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* ---------- Futuristic Navbar ---------- */
+      nav.navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background: linear-gradient(90deg, #0a1931, #102542);
+        box-shadow: 0 4px 20px rgba(0, 224, 255, 0.25);
+        border-bottom: 2px solid #00e0ff;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .title {
+        font-size: 50px;
+        font-weight: bold;
+        color: #00e0ff;
+        text-shadow: 0 0 10px rgba(0, 224, 255, 0.7);
+        font-family: "Orbitron", sans-serif;
+        letter-spacing: 1px;
+      }
+
+      /* Navbar Menu (Sections) */
+      .nav-links {
+        display: flex;
+        gap: 25px;
+      }
+
+      .nav-links a {
+        color: #00e0ff;
+        text-decoration: none;
+        font-weight: bold;
+        font-family: "Orbitron", sans-serif;
+        transition: color 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: #ffffff;
+      }
+
+      /* Mobile Dropdown Menu */
+      .menu-toggle {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+      }
+
+      .menu-toggle span {
+        background: #00e0ff;
+        height: 3px;
+        width: 25px;
+        margin: 4px 0;
+        border-radius: 5px;
+      }
+
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+          flex-direction: column;
+          background: rgba(10, 25, 49, 0.95);
+          position: absolute;
+          top: 60px;
+          right: 20px;
+          padding: 10px 20px;
+          border: 1px solid #00e0ff;
+          border-radius: 10px;
+        }
+
+        .nav-links.active {
+          display: flex;
+        }
+
+        .menu-toggle {
+          display: flex;
+        }
+      }
+
+      /* ---------- Body & Background ---------- */
+      body {
+        background-image: url("bg.png");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        color: #ffffff;
+        margin: 0;
+        padding: 0;
+        font-family: "Orbitron", sans-serif;
+      }
+
+      /* ---------- About Section ---------- */
+      .intro-section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 60px 80px;
+        gap: 60px;
+      }
+
+      .intro-text {
+        flex: 1;
+        font-size: 20px;
+        line-height: 1.6;
+        text-shadow: 0 0 6px rgba(0, 224, 255, 0.5);
+      }
+
+      .intro-text h1 {
+        font-size: 36px;
+        color: #00e0ff;
+      }
+
+      .intro-photo {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+      }
+
+      .intro-photo img {
+        width: 80%;
+        max-width: 350px;
+        border-radius: 20px;
+        box-shadow: 0 0 25px rgba(0, 224, 255, 0.3);
+        transition: transform 0.4s ease;
+      }
+
+      .intro-photo img:hover {
+        transform: scale(1.05);
+      }
+
+      /* ---------- Section Headings ---------- */
+      .section-heading {
+        text-align: center;
+        font-size: 36px;
+        color: #00e0ff;
+        margin-top: 60px;
+        text-shadow: 0 0 8px rgba(0, 224, 255, 0.6);
+      }
+
+      /* ---------- Card Grid ---------- */
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+        margin-top: 40px;
+        padding: 0 40px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      /* ---------- Flip Cards ---------- */
+      .flip-card {
+        background-color: transparent;
+        width: 100%;
+        height: 250px;
+        perspective: 1000px;
+      }
+
+      .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+      }
+
+      .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+      }
+
+      .flip-card-front,
+      .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        border-radius: 15px;
+        box-shadow: 0 0 15px rgba(0, 224, 255, 0.2);
+        overflow: hidden;
+      }
+
+      .flip-card-front img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .flip-card-back {
+        background: rgba(10, 25, 49, 0.9);
+        color: #00e0ff;
+        transform: rotateY(180deg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        text-align: center;
+        font-size: 18px;
+        border: 1px solid #00e0ff;
+      }
+
+      /* ---------- Social Icons ---------- */
+      .icon-container {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin: 30px 0;
+      }
+
+      .icon {
+        width: 45px;
+        height: 45px;
+        border-radius: 12px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .icon:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 12px rgba(0, 224, 255, 0.6);
+      }
+
+      /* ---------- Responsive ---------- */
+      @media (max-width: 1024px) {
+        .card-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .title {
+          font-size: 36px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        body {
+          background-image: url("bg2.png");
+        }
+
+        .intro-section {
+          flex-direction: column-reverse;
+          text-align: center;
+          padding: 40px 20px;
+        }
+
+        .intro-photo img {
+          width: 70%;
+          max-width: 250px;
+        }
+
+        .card-grid {
+          grid-template-columns: 1fr !important;
+          padding: 0 20px;
+          gap: 20px;
+        }
+      }
+    </style>
   </head>
 
   <body>
     <!-- Navbar -->
     <nav class="navbar">
       <div class="title">My Portfolio</div>
-
-      <!-- Hamburger for mobile -->
-      <div class="menu-toggle" id="menu-toggle">
-        ☰
-      </div>
-
-      <!-- Navigation Links -->
+      <div class="menu-toggle" id="menu-toggle">☰</div>
       <div class="nav-links" id="nav-links">
         <a href="#intro">About</a>
         <a href="#education">Education</a>
         <a href="#internship">Internship</a>
         <a href="#projects">Projects</a>
         <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
       </div>
     </nav>
 
-    <!-- Intro Section -->
+    <!-- About Section -->
     <section id="intro" class="intro-section">
-      <div class="intro-content">
-        <div class="intro-text">
-          <h1>Hi, I'm <span class="highlight">Your Name</span></h1>
-          <p>
-            A passionate developer specializing in <b>AI, Web Development, and Automation</b>.  
-            I love crafting efficient digital experiences and exploring innovative technologies.
-          </p>
-          <p>
-            📧 <a href="mailto:yourname@email.com">yourname@email.com</a>
-          </p>
-        </div>
-        <div class="intro-photo">
-          <img src="images/me.jpg" alt="My Photo" />
-        </div>
+      <div class="intro-text">
+        <h1>Hi, I'm <span class="highlight">Bikash Ranjan Behera</span></h1>
+        <p>
+          A passionate developer specializing in Water Resources Engineering and Climate modelling.
+        </p>
+        <p>📧 <a href="mailto:yourname@email.com">bikashphy09@gmail.com</a></p>
+      </div>
+      <div class="intro-photo">
+        <img src="images/me.jpg" alt="My Photo" />
       </div>
     </section>
 
-    <!-- Education Section -->
+    <!-- Education -->
     <section id="education">
       <h2 class="section-heading">Education</h2>
       <div class="card-grid">
-        <div class="flip-card" id="edu1"><div class="flip-card-inner"><div class="flip-card-front"><img src="images/edu1.jpg" /></div><div class="flip-card-back"><p>B.Tech in Computer Science – XYZ University (2021–2025)</p></div></div></div>
-        <div class="flip-card" id="edu2"><div class="flip-card-inner"><div class="flip-card-front"><img src="images/edu2.jpg" /></div><div class="flip-card-back"><p>High School – ABC School (2019–2021)</p></div></div></div>
-        <div class="flip-card" id="edu3"><div class="flip-card-inner"><div class="flip-card-front"><img src="images/edu3.jpg" /></div><div class="flip-card-back"><p>Intermediate – DEF Junior College</p></div></div></div>
-        <div class="flip-card" id="edu4"><div class="flip-card-inner"><div class="flip-card-front"><img src="images/edu4.jpg" /></div><div class="flip-card-back"><p>Certifications – Coursera, Udemy etc.</p></div></div></div>
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front"><img src="images/iitkgp.jpg" /></div>
+            <div class="flip-card-back">
+              <p>M.Tech – IIT Kharagpur (2023–2025)</p>
+            </div>
+          </div>
+        </div>
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front"><img src="images/caet.jpg" /></div>
+            <div class="flip-card-back">
+              <p>B.Tech - CAET, Bhubaneswar (2019–2023)</p>
+            </div>
+          </div>
+        </div>
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front"><img src="images/jnv.jpg" /></div>
+            <div class="flip-card-back">
+              <p>Intermediate - JNV, Phulbani (2017–2019)</p>
+            </div>
+          </div>
+        </div>
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front"><img src="images/jnv.jpg" /></div>
+            <div class="flip-card-back">
+              <p>High School - JNV, Phulbani (2012–2017)</p>
+            </div>
+          </div>
+        </div>
+        
       </div>
     </section>
 
-    <!-- Internship Section -->
+    <!-- Internship -->
     <section id="internship">
       <h2 class="section-heading">Training & Internships</h2>
       <div class="card-grid">
-        <div class="flip-card" id="intern1"><div class="flip-card-inner"><div class="flip-card-front"><img src="images/intern1.jpg" /></div><div class="flip-card-back"><p>AI Research Intern – Company A</p></div></div></div>
-        <div class="flip-card" id="intern2"><div class="flip-card-inner"><div class="flip-card-front"><img src="images/intern2.jpg" /></div><div class="flip-card-back"><p>Web Dev Intern – Company B</p></div></div></div>
-        <div class="flip-card" id="intern3"><div class="flip-card-inner"><div class="flip-card-front"><img src="images/intern3.jpg" /></div><div class="flip-card-back"><p>IoT Training – Company C</p></div></div></div>
-        <div class="flip-card" id="intern4"><div class="flip-card-inner"><div class="flip-card-front"><img src="images/intern4.jpg" /></div><div class="flip-card-back"><p>Data Science Virtual Internship – XYZ</p></div></div></div>
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front"><img src="images/intern1.jpg" /></div>
+            <div class="flip-card-back">
+              <p>C-DAC</p>
+            </div>
+          </div>
+        </div>
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front"><img src="images/intern1.jpg" /></div>
+            <div class="flip-card-back">
+              <p>SAC, ISRO</p>
+            </div>
+          </div>
+        </div>
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front"><img src="images/intern1.jpg" /></div>
+            <div class="flip-card-back">
+              <p>SAC, ISRO</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Projects -->
     <section id="projects">
       <h2 class="section-heading">Projects</h2>
-
-      <h3 class="subheading">Major Projects</h3>
       <div class="card-grid">
-        <div class="flip-card" id="proj-major-1"><div class="flip-card-inner"><div class="flip-card-front"><img src="images/proj1.jpg" /></div><div class="flip-card-back"><p>Predictive AI Analytics System</p></div></div></div>
-        <div class="flip-card" id="proj-major-2"><div class="flip-card-inner"><div class="flip-card-front"><img src="images/proj2.jpg" /></div><div class="flip-card-back"><p>Real-time Weather Dashboard</p></div></div></div>
-        <div class="flip-card" id="proj-major-3"><div class="flip-card-inner"><div class="flip-card-front"><img src="images/proj3.jpg" /></div><div class="flip-card-back"><p>Automation Bot for Workflows</p></div></div></div>
-        <div class="flip-card" id="proj-major-4"><div class="flip-card-inner"><div class="flip-card-front"><img src="images/proj4.jpg" /></div><div class="flip-card-back"><p>Cloud-native Microservice System</p></div></div></div>
-      </div>
-
-      <h3 class="subheading">Minor Projects</h3>
-      <div class="card-grid">
-        <!-- 4 Minor Project Cards -->
-      </div>
-
-      <h3 class="subheading">Hands-on / Practice</h3>
-      <div class="card-grid">
-        <!-- 4 Hands-on Cards -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front"><img src="images/proj1.jpg" /></div>
+            <div class="flip-card-back">
+              <p>MTP</p>
+            </div>
+          </div>
+        </div>
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front"><img src="images/proj1.jpg" /></div>
+            <div class="flip-card-back">
+              <p>BTP</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Experience Section -->
+    <!-- Experience -->
     <section id="experience">
       <h2 class="section-heading">Experience</h2>
       <div class="card-grid">
-        <div class="flip-card" id="exp1"><div class="flip-card-inner"><div class="flip-card-front"><img src="images/exp1.jpg" /></div><div class="flip-card-back"><p>Freelance Developer – Web Projects</p></div></div></div>
-        <div class="flip-card" id="exp2"><div class="flip-card-inner"><div class="flip-card-front"><img src="images/exp2.jpg" /></div><div class="flip-card-back"><p>Technical Content Creator – Medium</p></div></div></div>
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front"><img src="images/exp1.jpg" /></div>
+            <div class="flip-card-back">
+              <p>Freelance Developer – Web Projects</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Social Media Section -->
-    <section id="connect">
+    <!-- Contact -->
+    <section id="contact">
       <h2 class="section-heading">Connect With Me</h2>
-      <div class="icon-container social">
-        <a href="https://www.instagram.com/"><img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" /></a>
-        <a href="https://www.whatsapp.com/"><img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" /></a>
-        <a href="https://www.linkedin.com/"><img class="icon" src="https://cdn-icons-png.flaticon.com/512/174/174857.png" /></a>
+      <div class="icon-container">
+        <a href="https://www.instagram.com/"
+          ><img
+            class="icon"
+            src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+        /></a>
+        <a href="https://www.whatsapp.com/"
+          ><img
+            class="icon"
+            src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+        /></a>
+        <a href="https://www.linkedin.com/"
+          ><img
+            class="icon"
+            src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
+        /></a>
       </div>
     </section>
 
-    <!-- Mobile Menu Toggle Script -->
+    <!-- Mobile Menu Script -->
     <script>
-      const toggle = document.getElementById('menu-toggle');
-      const links = document.getElementById('nav-links');
-      toggle.addEventListener('click', () => {
-        links.classList.toggle('active');
+      const toggle = document.getElementById("menu-toggle");
+      const links = document.getElementById("nav-links");
+      toggle.addEventListener("click", () => {
+        links.classList.toggle("active");
       });
     </script>
   </body>
