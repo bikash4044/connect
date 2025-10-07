@@ -3,8 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My own Linedin</title>
-
+    <title>My Portfolio</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap"
       rel="stylesheet"
@@ -15,201 +14,113 @@
   <body>
     <!-- Navbar -->
     <nav class="navbar">
-      <div class="title">Connect</div>
-      <div class="icon-container">
-        <a href="https://www.instagram.com/"
-          ><img
-            class="icon"
-            src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
-        /></a>
-        <a href="https://www.whatsapp.com/"
-          ><img
-            class="icon"
-            src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-        /></a>
-        <a href="https://www.linkedin.com/"
-          ><img
-            class="icon"
-            src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
-        /></a>
+      <div class="title">My Portfolio</div>
+
+      <!-- Hamburger for mobile -->
+      <div class="menu-toggle" id="menu-toggle">
+        ☰
+      </div>
+
+      <!-- Navigation Links -->
+      <div class="nav-links" id="nav-links">
+        <a href="#intro">About</a>
+        <a href="#education">Education</a>
+        <a href="#internship">Internship</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
       </div>
     </nav>
 
-    <!-- Flip Card Section -->
-    <div class="card-grid">
-      <!-- Card 1 -->
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <img src="bg2.png" alt="Card 1" />
-          </div>
-          <div class="flip-card-back">
-            <p>Project Alpha: Advanced AI model for predictive analytics.</p>
-          </div>
+    <!-- Intro Section -->
+    <section id="intro" class="intro-section">
+      <div class="intro-content">
+        <div class="intro-text">
+          <h1>Hi, I'm <span class="highlight">Your Name</span></h1>
+          <p>
+            A passionate developer specializing in <b>AI, Web Development, and Automation</b>.  
+            I love crafting efficient digital experiences and exploring innovative technologies.
+          </p>
+          <p>
+            📧 <a href="mailto:yourname@email.com">yourname@email.com</a>
+          </p>
+        </div>
+        <div class="intro-photo">
+          <img src="images/me.jpg" alt="My Photo" />
         </div>
       </div>
+    </section>
 
-      <!-- Card 2 -->
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <img src="images/card2.jpg" alt="Card 2" />
-          </div>
-          <div class="flip-card-back">
-            <p>Project Beta: A data visualization dashboard with React.</p>
-          </div>
-        </div>
+    <!-- Education Section -->
+    <section id="education">
+      <h2 class="section-heading">Education</h2>
+      <div class="card-grid">
+        <div class="flip-card" id="edu1"><div class="flip-card-inner"><div class="flip-card-front"><img src="images/edu1.jpg" /></div><div class="flip-card-back"><p>B.Tech in Computer Science – XYZ University (2021–2025)</p></div></div></div>
+        <div class="flip-card" id="edu2"><div class="flip-card-inner"><div class="flip-card-front"><img src="images/edu2.jpg" /></div><div class="flip-card-back"><p>High School – ABC School (2019–2021)</p></div></div></div>
+        <div class="flip-card" id="edu3"><div class="flip-card-inner"><div class="flip-card-front"><img src="images/edu3.jpg" /></div><div class="flip-card-back"><p>Intermediate – DEF Junior College</p></div></div></div>
+        <div class="flip-card" id="edu4"><div class="flip-card-inner"><div class="flip-card-front"><img src="images/edu4.jpg" /></div><div class="flip-card-back"><p>Certifications – Coursera, Udemy etc.</p></div></div></div>
+      </div>
+    </section>
+
+    <!-- Internship Section -->
+    <section id="internship">
+      <h2 class="section-heading">Training & Internships</h2>
+      <div class="card-grid">
+        <div class="flip-card" id="intern1"><div class="flip-card-inner"><div class="flip-card-front"><img src="images/intern1.jpg" /></div><div class="flip-card-back"><p>AI Research Intern – Company A</p></div></div></div>
+        <div class="flip-card" id="intern2"><div class="flip-card-inner"><div class="flip-card-front"><img src="images/intern2.jpg" /></div><div class="flip-card-back"><p>Web Dev Intern – Company B</p></div></div></div>
+        <div class="flip-card" id="intern3"><div class="flip-card-inner"><div class="flip-card-front"><img src="images/intern3.jpg" /></div><div class="flip-card-back"><p>IoT Training – Company C</p></div></div></div>
+        <div class="flip-card" id="intern4"><div class="flip-card-inner"><div class="flip-card-front"><img src="images/intern4.jpg" /></div><div class="flip-card-back"><p>Data Science Virtual Internship – XYZ</p></div></div></div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+      <h2 class="section-heading">Projects</h2>
+
+      <h3 class="subheading">Major Projects</h3>
+      <div class="card-grid">
+        <div class="flip-card" id="proj-major-1"><div class="flip-card-inner"><div class="flip-card-front"><img src="images/proj1.jpg" /></div><div class="flip-card-back"><p>Predictive AI Analytics System</p></div></div></div>
+        <div class="flip-card" id="proj-major-2"><div class="flip-card-inner"><div class="flip-card-front"><img src="images/proj2.jpg" /></div><div class="flip-card-back"><p>Real-time Weather Dashboard</p></div></div></div>
+        <div class="flip-card" id="proj-major-3"><div class="flip-card-inner"><div class="flip-card-front"><img src="images/proj3.jpg" /></div><div class="flip-card-back"><p>Automation Bot for Workflows</p></div></div></div>
+        <div class="flip-card" id="proj-major-4"><div class="flip-card-inner"><div class="flip-card-front"><img src="images/proj4.jpg" /></div><div class="flip-card-back"><p>Cloud-native Microservice System</p></div></div></div>
       </div>
 
-      <!-- Card 3 -->
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <img src="images/card3.jpg" alt="Card 3" />
-          </div>
-          <div class="flip-card-back">
-            <p>Project Gamma: Automation workflow using Python & APIs.</p>
-          </div>
-        </div>
+      <h3 class="subheading">Minor Projects</h3>
+      <div class="card-grid">
+        <!-- 4 Minor Project Cards -->
       </div>
 
-      <!-- Card 4 -->
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <img src="images/card4.jpg" alt="Card 4" />
-          </div>
-          <div class="flip-card-back">
-            <p>Project Delta: Cloud-native deployment on AWS.</p>
-          </div>
-        </div>
+      <h3 class="subheading">Hands-on / Practice</h3>
+      <div class="card-grid">
+        <!-- 4 Hands-on Cards -->
       </div>
+    </section>
 
-      <!-- Card 4 -->
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <img src="images/card4.jpg" alt="Card 4" />
-          </div>
-          <div class="flip-card-back">
-            <p>Project Delta: Cloud-native deployment on AWS.</p>
-          </div>
-        </div>
+    <!-- Experience Section -->
+    <section id="experience">
+      <h2 class="section-heading">Experience</h2>
+      <div class="card-grid">
+        <div class="flip-card" id="exp1"><div class="flip-card-inner"><div class="flip-card-front"><img src="images/exp1.jpg" /></div><div class="flip-card-back"><p>Freelance Developer – Web Projects</p></div></div></div>
+        <div class="flip-card" id="exp2"><div class="flip-card-inner"><div class="flip-card-front"><img src="images/exp2.jpg" /></div><div class="flip-card-back"><p>Technical Content Creator – Medium</p></div></div></div>
       </div>
+    </section>
 
-
-      <!-- Card 4 -->
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <img src="images/card4.jpg" alt="Card 4" />
-          </div>
-          <div class="flip-card-back">
-            <p>Project Delta: Cloud-native deployment on AWS.</p>
-          </div>
-        </div>
+    <!-- Social Media Section -->
+    <section id="connect">
+      <h2 class="section-heading">Connect With Me</h2>
+      <div class="icon-container social">
+        <a href="https://www.instagram.com/"><img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" /></a>
+        <a href="https://www.whatsapp.com/"><img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" /></a>
+        <a href="https://www.linkedin.com/"><img class="icon" src="https://cdn-icons-png.flaticon.com/512/174/174857.png" /></a>
       </div>
+    </section>
 
-      <!-- Card 4 -->
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <img src="images/card4.jpg" alt="Card 4" />
-          </div>
-          <div class="flip-card-back">
-            <p>Project Delta: Cloud-native deployment on AWS.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 4 -->
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <img src="images/card4.jpg" alt="Card 4" />
-          </div>
-          <div class="flip-card-back">
-            <p>Project Delta: Cloud-native deployment on AWS.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 4 -->
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <img src="images/card4.jpg" alt="Card 4" />
-          </div>
-          <div class="flip-card-back">
-            <p>Project Delta: Cloud-native deployment on AWS.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 4 -->
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <img src="images/card4.jpg" alt="Card 4" />
-          </div>
-          <div class="flip-card-back">
-            <p>Project Delta: Cloud-native deployment on AWS.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 4 -->
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <img src="images/card4.jpg" alt="Card 4" />
-          </div>
-          <div class="flip-card-back">
-            <p>Project Delta: Cloud-native deployment on AWS.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 4 -->
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <img src="images/card4.jpg" alt="Card 4" />
-          </div>
-          <div class="flip-card-back">
-            <p>Project Delta: Cloud-native deployment on AWS.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 4 -->
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <img src="images/card4.jpg" alt="Card 4" />
-          </div>
-          <div class="flip-card-back">
-            <p>Project Delta: Cloud-native deployment on AWS.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 4 -->
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <img src="images/card4.jpg" alt="Card 4" />
-          </div>
-          <div class="flip-card-back">
-            <p>Project Delta: Cloud-native deployment on AWS.</p>
-          </div>
-        </div>
-      </div>
-
-
-
-
-      
-    </div>
+    <!-- Mobile Menu Toggle Script -->
+    <script>
+      const toggle = document.getElementById('menu-toggle');
+      const links = document.getElementById('nav-links');
+      toggle.addEventListener('click', () => {
+        links.classList.toggle('active');
+      });
+    </script>
   </body>
 </html>
