@@ -21,61 +21,59 @@ nav.navbar {
   letter-spacing: 1px;
 }
 
-/* ---------- Navbar Links (Sections) ---------- */
+/* Navbar Menu (Sections) */
 .nav-links {
   display: flex;
   gap: 25px;
 }
 
 .nav-links a {
-  text-decoration: none;
   color: #00e0ff;
-  font-weight: 600;
-  font-size: 18px;
-  text-shadow: 0 0 6px rgba(0, 224, 255, 0.6);
-  transition: color 0.3s ease, text-shadow 0.3s ease;
+  text-decoration: none;
+  font-weight: bold;
   font-family: "Orbitron", sans-serif;
+  transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
   color: #ffffff;
-  text-shadow: 0 0 12px rgba(0, 224, 255, 0.9);
 }
 
-/* ---------- Hamburger Menu (Mobile) ---------- */
-.hamburger {
+/* Mobile Dropdown Menu */
+.menu-toggle {
   display: none;
   flex-direction: column;
   cursor: pointer;
-  gap: 5px;
 }
 
-.hamburger div {
-  width: 28px;
+.menu-toggle span {
+  background: #00e0ff;
   height: 3px;
-  background-color: #00e0ff;
-  transition: all 0.3s ease;
+  width: 25px;
+  margin: 4px 0;
+  border-radius: 5px;
 }
 
-/* ---------- Mobile Dropdown Menu ---------- */
-.mobile-menu {
-  display: none;
-  flex-direction: column;
-  background: rgba(10, 25, 49, 0.95);
-  border-top: 2px solid #00e0ff;
-  padding: 15px 20px;
-}
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: rgba(10, 25, 49, 0.95);
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    padding: 10px 20px;
+    border: 1px solid #00e0ff;
+    border-radius: 10px;
+  }
 
-.mobile-menu a {
-  padding: 10px 0;
-  color: #00e0ff;
-  text-decoration: none;
-  font-size: 18px;
-  border-bottom: 1px solid rgba(0, 224, 255, 0.2);
-}
+  .nav-links.active {
+    display: flex;
+  }
 
-.mobile-menu a:hover {
-  color: #fff;
+  .menu-toggle {
+    display: flex;
+  }
 }
 
 /* ---------- Body & Background ---------- */
@@ -91,7 +89,41 @@ body {
   display: block;
 }
 
-/* ---------- Card Grid ---------- */
+/* ---------- About Section ---------- */
+.about-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 80px;
+  gap: 60px;
+}
+
+.about-text {
+  flex: 1;
+  font-size: 20px;
+  line-height: 1.6;
+  text-shadow: 0 0 6px rgba(0, 224, 255, 0.5);
+}
+
+.about-photo {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.about-photo img {
+  width: 80%;
+  max-width: 350px;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(0, 224, 255, 0.3);
+  transition: transform 0.4s ease;
+}
+
+.about-photo img:hover {
+  transform: scale(1.05);
+}
+
+/* ---------- Card Grid (Education, Projects, etc.) ---------- */
 .card-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -160,36 +192,9 @@ body {
   text-shadow: 0 0 6px rgba(0, 224, 255, 0.5);
 }
 
-/* ---------- Social Media (Moved Below Experience) ---------- */
-.social-section {
-  margin-top: 50px;
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-}
-
-.icon-container {
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-}
-
-.icon {
-  width: 45px;
-  height: 45px;
-  object-fit: contain;
-  border-radius: 12px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.icon:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 12px rgba(0, 224, 255, 0.6);
-}
-
 /* ---------- Responsive Design ---------- */
 
-/* Tablets (≤1024px) → 2 columns */
+/* Tablets (≤1024px) */
 @media (max-width: 1024px) {
   .card-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -200,10 +205,25 @@ body {
   }
 }
 
-/* Mobile (≤768px) → 1 column + Dropdown Menu */
+/* Mobile (≤768px) */
 @media (max-width: 768px) {
   body {
     background-image: url("bg2.png");
+  }
+
+  .about-section {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .about-photo img {
+    width: 70%;
+    max-width: 250px;
+  }
+
+  .about-text {
+    font-size: 18px;
   }
 
   .card-grid {
@@ -227,17 +247,5 @@ body {
 
   .title {
     font-size: 32px;
-  }
-
-  .nav-links {
-    display: none;
-  }
-
-  .hamburger {
-    display: flex;
-  }
-
-  .mobile-menu.show {
-    display: flex;
   }
 }
