@@ -75,13 +75,34 @@ body {
   }
 }
 
-
+/* Mobile (Android, phones) */
 @media only screen and (max-width: 768px) {
-    body {
-        background-image: url('bg2.png');
-    }
-}
+  body {
+    background-image: url('bg2.png');
+  }
 
+  .card-grid {
+    grid-template-columns: 1fr;
+    padding: 0 20px; /* same side padding feel as desktop */
+    gap: 20px;       /* consistent spacing */
+  }
+
+  .flip-card {
+    width: 100%;
+    max-width: 400px; /* keeps similar visual width as desktop tiles */
+    height: auto;
+    aspect-ratio: 4 / 3; /* maintain same shape as desktop card */
+    margin: 0 auto; /* center the card */
+  }
+
+  .flip-card-front img {
+    object-fit: cover;
+  }
+
+  .title {
+    font-size: 32px;
+  }
+}
 
 /* ---------- Flip Card Design ---------- */
 .flip-card {
