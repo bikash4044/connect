@@ -21,22 +21,61 @@ nav.navbar {
   letter-spacing: 1px;
 }
 
-.icon-container {
+/* ---------- Navbar Links (Sections) ---------- */
+.nav-links {
   display: flex;
-  gap: 15px;
+  gap: 25px;
 }
 
-.icon {
-  width: 45px;
-  height: 45px;
-  object-fit: contain;
-  border-radius: 12px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.nav-links a {
+  text-decoration: none;
+  color: #00e0ff;
+  font-weight: 600;
+  font-size: 18px;
+  text-shadow: 0 0 6px rgba(0, 224, 255, 0.6);
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  font-family: "Orbitron", sans-serif;
 }
 
-.icon:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 12px rgba(0, 224, 255, 0.6);
+.nav-links a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 12px rgba(0, 224, 255, 0.9);
+}
+
+/* ---------- Hamburger Menu (Mobile) ---------- */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger div {
+  width: 28px;
+  height: 3px;
+  background-color: #00e0ff;
+  transition: all 0.3s ease;
+}
+
+/* ---------- Mobile Dropdown Menu ---------- */
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  background: rgba(10, 25, 49, 0.95);
+  border-top: 2px solid #00e0ff;
+  padding: 15px 20px;
+}
+
+.mobile-menu a {
+  padding: 10px 0;
+  color: #00e0ff;
+  text-decoration: none;
+  font-size: 18px;
+  border-bottom: 1px solid rgba(0, 224, 255, 0.2);
+}
+
+.mobile-menu a:hover {
+  color: #fff;
 }
 
 /* ---------- Body & Background ---------- */
@@ -49,7 +88,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Orbitron", sans-serif;
-  display: block; /* ensures full-width content */
+  display: block;
 }
 
 /* ---------- Card Grid ---------- */
@@ -121,6 +160,33 @@ body {
   text-shadow: 0 0 6px rgba(0, 224, 255, 0.5);
 }
 
+/* ---------- Social Media (Moved Below Experience) ---------- */
+.social-section {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.icon-container {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.icon {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 12px rgba(0, 224, 255, 0.6);
+}
+
 /* ---------- Responsive Design ---------- */
 
 /* Tablets (≤1024px) → 2 columns */
@@ -134,23 +200,23 @@ body {
   }
 }
 
-/* Mobile (≤768px) → 1 column */
+/* Mobile (≤768px) → 1 column + Dropdown Menu */
 @media (max-width: 768px) {
   body {
     background-image: url("bg2.png");
   }
 
   .card-grid {
-    grid-template-columns: 1fr !important; /* override tablet rule */
+    grid-template-columns: 1fr !important;
     padding: 0 20px;
     gap: 20px;
-    justify-items: center; /* centers the cards nicely */
+    justify-items: center;
   }
 
   .flip-card {
     width: 100%;
     max-width: 400px;
-    aspect-ratio: 4 / 3; /* maintains same proportions */
+    aspect-ratio: 4 / 3;
     height: auto;
     margin: 0 auto;
   }
@@ -161,5 +227,17 @@ body {
 
   .title {
     font-size: 32px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .mobile-menu.show {
+    display: flex;
   }
 }
