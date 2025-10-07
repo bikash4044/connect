@@ -49,9 +49,8 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Orbitron", sans-serif;
-  display: block; /* not flex — allows full-width content */
+  display: block; /* ensures full-width content */
 }
-
 
 /* ---------- Card Grid ---------- */
 .card-grid {
@@ -59,49 +58,9 @@ body {
   grid-template-columns: repeat(4, 1fr);
   gap: 25px;
   margin-top: 40px;
-  padding: 0 40px; /* adds space at the edges */
+  padding: 0 40px;
   width: 100%;
   box-sizing: border-box;
-}
-
-
-@media (max-width: 1024px) {
-  .card-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .title {
-    font-size: 36px;
-  }
-}
-
-/* Mobile (Android, phones) */
-@media only screen and (max-width: 768px) {
-  body {
-    background-image: url('bg2.png');
-  }
-
-  .card-grid {
-    grid-template-columns: 1fr;
-    padding: 0 20px; /* same side padding feel as desktop */
-    gap: 20px;       /* consistent spacing */
-  }
-
-  .flip-card {
-    width: 100%;
-    max-width: 400px; /* keeps similar visual width as desktop tiles */
-    height: auto;
-    aspect-ratio: 4 / 3; /* maintain same shape as desktop card */
-    margin: 0 auto; /* center the card */
-  }
-
-  .flip-card-front img {
-    object-fit: cover;
-  }
-
-  .title {
-    font-size: 32px;
-  }
 }
 
 /* ---------- Flip Card Design ---------- */
@@ -160,4 +119,47 @@ body {
   font-size: 18px;
   border: 1px solid #00e0ff;
   text-shadow: 0 0 6px rgba(0, 224, 255, 0.5);
+}
+
+/* ---------- Responsive Design ---------- */
+
+/* Tablets (≤1024px) → 2 columns */
+@media (max-width: 1024px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .title {
+    font-size: 36px;
+  }
+}
+
+/* Mobile (≤768px) → 1 column */
+@media (max-width: 768px) {
+  body {
+    background-image: url("bg2.png");
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr !important; /* override tablet rule */
+    padding: 0 20px;
+    gap: 20px;
+    justify-items: center; /* centers the cards nicely */
+  }
+
+  .flip-card {
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 4 / 3; /* maintains same proportions */
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .flip-card-front img {
+    object-fit: cover;
+  }
+
+  .title {
+    font-size: 32px;
+  }
 }
