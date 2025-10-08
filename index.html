@@ -1,436 +1,657 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Portfolio</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      /* ---------- Futuristic Navbar ---------- */
-      nav.navbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 20px;
-        background: linear-gradient(90deg, #0a1931, #102542);
-        box-shadow: 0 4px 20px rgba(0, 224, 255, 0.25);
-        border-bottom: 2px solid #00e0ff;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-      }
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>My Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet" />
+<style>
+/* ---------- Futuristic Navbar ---------- */
+nav.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: linear-gradient(90deg, #0a1931, #102542);
+  box-shadow: 0 4px 20px rgba(0, 224, 255, 0.25);
+  border-bottom: 2px solid #00e0ff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
 
-      .title {
-        font-size: 50px;
-        font-weight: bold;
-        color: #00e0ff;
-        text-shadow: 0 0 10px rgba(0, 224, 255, 0.7);
-        font-family: "Orbitron", sans-serif;
-        letter-spacing: 1px;
-      }
+.title {
+  font-size: 50px;
+  font-weight: bold;
+  color: #00e0ff;
+  text-shadow: 0 0 10px rgba(0, 224, 255, 0.7);
+  font-family: "Orbitron", sans-serif;
+  letter-spacing: 1px;
+}
 
-      /* Navbar Menu (Sections) */
-      .nav-links {
-        display: flex;
-        gap: 25px;
-      }
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
 
-      .nav-links a {
-        color: #00e0ff;
-        text-decoration: none;
-        font-weight: bold;
-        font-family: "Orbitron", sans-serif;
-        transition: color 0.3s ease;
-      }
+.nav-links a {
+  color: #00e0ff;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: "Orbitron", sans-serif;
+  transition: color 0.3s ease;
+}
 
-      .nav-links a:hover {
-        color: #ffffff;
-      }
+.nav-links a:hover {
+  color: #ffffff;
+}
 
-      /* Mobile Dropdown Menu */
-      .menu-toggle {
-        display: none;
-        flex-direction: column;
-        cursor: pointer;
-      }
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
 
-      .menu-toggle span {
-        background: #00e0ff;
-        height: 3px;
-        width: 25px;
-        margin: 4px 0;
-        border-radius: 5px;
-      }
+.menu-toggle span {
+  background: #00e0ff;
+  height: 3px;
+  width: 25px;
+  margin: 4px 0;
+  border-radius: 5px;
+}
 
-      @media (max-width: 768px) {
-        .nav-links {
-          display: none;
-          flex-direction: column;
-          background: rgba(10, 25, 49, 0.95);
-          position: absolute;
-          top: 60px;
-          right: 20px;
-          padding: 10px 20px;
-          border: 1px solid #00e0ff;
-          border-radius: 10px;
-        }
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: rgba(10, 25, 49, 0.95);
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    padding: 10px 20px;
+    border: 1px solid #00e0ff;
+    border-radius: 10px;
+  }
+  .nav-links.active {
+    display: flex;
+  }
+  .menu-toggle {
+    display: flex;
+  }
+}
 
-        .nav-links.active {
-          display: flex;
-        }
+/* ---------- Body ---------- */
+body {
+  background-image: url("bg.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+  font-family: "Orbitron", sans-serif;
+}
 
-        .menu-toggle {
-          display: flex;
-        }
-      }
+/* ---------- Sections ---------- */
+.intro-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 80px;
+  gap: 60px;
+}
 
-      /* ---------- Body & Background ---------- */
-      body {
-        background-image: url("bg.png");
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: cover;
-        color: #ffffff;
-        margin: 0;
-        padding: 0;
-        font-family: "Orbitron", sans-serif;
-      }
+.intro-text {
+  flex: 1;
+  font-size: 20px;
+  line-height: 1.6;
+  text-shadow: 0 0 6px rgba(0, 224, 255, 0.5);
+}
 
-      /* ---------- About Section ---------- */
-      .intro-section {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 60px 80px;
-        gap: 60px;
-      }
+.intro-text h1 {
+  font-size: 36px;
+  color: #00e0ff;
+}
 
-      .intro-text {
-        flex: 1;
-        font-size: 20px;
-        line-height: 1.6;
-        text-shadow: 0 0 6px rgba(0, 224, 255, 0.5);
-      }
+.intro-photo {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
 
-      .intro-text h1 {
-        font-size: 36px;
-        color: #00e0ff;
-      }
+.intro-photo img {
+  width: 80%;
+  max-width: 350px;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(0, 224, 255, 0.3);
+  transition: transform 0.4s ease;
+}
 
-      .intro-photo {
-        flex: 1;
-        display: flex;
-        justify-content: center;
-      }
+.intro-photo img:hover {
+  transform: scale(1.05);
+}
 
-      .intro-photo img {
-        width: 80%;
-        max-width: 350px;
-        border-radius: 20px;
-        box-shadow: 0 0 25px rgba(0, 224, 255, 0.3);
-        transition: transform 0.4s ease;
-      }
+.section-heading {
+  text-align: center;
+  font-size: 36px;
+  color: #00e0ff;
+  margin-top: 60px;
+  text-shadow: 0 0 8px rgba(0, 224, 255, 0.6);
+}
 
-      .intro-photo img:hover {
-        transform: scale(1.05);
-      }
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  margin-top: 40px;
+  padding: 0 40px;
+  width: 100%;
+  box-sizing: border-box;
+}
 
-      /* ---------- Section Headings ---------- */
-      .section-heading {
-        text-align: center;
-        font-size: 36px;
-        color: #00e0ff;
-        margin-top: 60px;
-        text-shadow: 0 0 8px rgba(0, 224, 255, 0.6);
-      }
+.flip-card {
+  background-color: transparent;
+  width: 100%;
+  height: 250px;
+  perspective: 1000px;
+}
 
-      /* ---------- Card Grid ---------- */
-      .card-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 25px;
-        margin-top: 40px;
-        padding: 0 40px;
-        width: 100%;
-        box-sizing: border-box;
-      }
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
 
-      /* ---------- Flip Cards ---------- */
-      .flip-card {
-        background-color: transparent;
-        width: 100%;
-        height: 250px;
-        perspective: 1000px;
-      }
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
 
-      .flip-card-inner {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        transition: transform 0.8s;
-        transform-style: preserve-3d;
-      }
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 224, 255, 0.2);
+  overflow: hidden;
+}
 
-      .flip-card:hover .flip-card-inner {
-        transform: rotateY(180deg);
-      }
+.flip-card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-      .flip-card-front,
-      .flip-card-back {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        backface-visibility: hidden;
-        border-radius: 15px;
-        box-shadow: 0 0 15px rgba(0, 224, 255, 0.2);
-        overflow: hidden;
-      }
+.flip-card-back {
+  background: rgba(10, 25, 49, 0.9);
+  color: #00e0ff;
+  transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+  font-size: 18px;
+  border: 1px solid #00e0ff;
+}
 
-      .flip-card-front img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
+/* ---------- Certifications ---------- */
+.cert-scroll {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 30px 0;
+}
 
-      .flip-card-back {
-        background: rgba(10, 25, 49, 0.9);
-        color: #00e0ff;
-        transform: rotateY(180deg);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 20px;
-        text-align: center;
-        font-size: 18px;
-        border: 1px solid #00e0ff;
-      }
+.scroll-track {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  width: max-content;
+  animation: scroll-left 25s linear infinite;
+}
+@keyframes scroll-loop {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.cert-item {
+  flex: 0 0 auto;
+  position: relative;
+}
 
-      /* ---------- Social Icons ---------- */
-      .icon-container {
-        display: flex;
-        justify-content: center;
-        gap: 15px;
-        margin: 30px 0;
-      }
+.cert-item img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border: 2px solid #00e0ff;
+  box-shadow: 0 0 15px rgba(0, 224, 255, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-      .icon {
-        width: 45px;
-        height: 45px;
-        border-radius: 12px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
+/* Circle style */
+.cert-item.circle img {
+  border-radius: 50%;
+}
 
-      .icon:hover {
-        transform: scale(1.1);
-        box-shadow: 0 0 12px rgba(0, 224, 255, 0.6);
-      }
+/* Card style (small card, circle size) */
+.cert-item.card img {
+  border-radius: 12px;
+  background: rgba(10, 25, 49, 0.9);
+  padding: 5px;
+}
 
-      /* ---------- Responsive ---------- */
-      @media (max-width: 1024px) {
-        .card-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
+.cert-item:hover img {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(0, 224, 255, 0.8);
+}
 
-        .title {
-          font-size: 36px;
-        }
-      }
+@keyframes scroll-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
 
-      @media (max-width: 768px) {
-        body {
-          background-image: url("bg2.png");
-        }
+/* ---------- Popup ---------- */
+.cert-popup {
+  position: fixed;
+  display: none;
+  background: rgba(10, 25, 49, 0.95);
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 25px rgba(0, 224, 255, 0.6);
+  border: 1px solid #00e0ff;
+  z-index: 9999;
+  pointer-events: none;
+}
 
-        .intro-section {
-          flex-direction: column-reverse;
-          text-align: center;
-          padding: 20px 20px;
-        }
+.cert-popup img {
+  max-width: 400px;
+  max-height: 300px;
+  border-radius: 10px;
+}
 
-        .intro-photo img {
-          width: 70%;
-          max-width: 250px;
-        }
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  body { background-image: url("bg2.png"); }
+  .intro-section {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding: 20px;
+  }
+  .intro-photo img { width: 70%; max-width: 250px; }
+  .card-grid { grid-template-columns: 1fr !important; padding: 0 10px; gap: 10px; }
+  .cert-item img { width: 70px; height: 70px; }
+  .cert-popup img { max-width: 90%; max-height: 200px; }
+}
 
-        .card-grid {
-          grid-template-columns: 1fr !important;
-          padding: 0 10px;
-          gap: 10px;
-        }
-      }
-    </style>
-  </head>
+.icon-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 30px 0;
+}
 
-  <body>
-    <!-- Navbar -->
-    <nav class="navbar">
-      <div class="title">My Portfolio</div>
-      <div class="menu-toggle" id="menu-toggle">☰</div>
-      <div class="nav-links" id="nav-links">
-        <a href="#intro">About</a>
-        <a href="#education">Education</a>
-        <a href="#internship">Internship</a>
-        <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </nav>
+.icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-    <!-- About Section -->
-    <section id="intro" class="intro-section">
-      <div class="intro-text">
-        <h1>Hi, I'm <span class="highlight">Bikash Ranjan Behera</span></h1>
-        <p>
-          A passionate developer specializing in Water Resources Engineering and Climate modelling.
-        </p>
-        <!-- <p>📧 <a href="mailto:yourname@email.com">bikashphy09@gmail.com</a></p> -->
-      </div>
-      <div class="intro-photo">
-        <img src="images/me.jpg" alt="My Photo" />
-      </div>
-    </section>
+.icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 12px rgba(0, 224, 255, 0.6);
+}
 
-    <!-- Education -->
-    <section id="education">
-      <h2 class="section-heading">Education</h2>
-      <div class="card-grid">
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front"><img src="images/iitkgp.jpg" /></div>
-            <div class="flip-card-back">
-              <p>M.Tech – IIT Kharagpur <br>(2023–2025)</p>
-            </div>
-          </div>
-        </div>
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front"><img src="images/caet.jpg" /></div>
-            <div class="flip-card-back">
-              <p>B.Tech - CAET, Bhubaneswar <br>(2019–2023)</p>
-            </div>
-          </div>
-        </div>
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front"><img src="images/jnv.jpg" /></div>
-            <div class="flip-card-back">
-              <p>Intermediate - JNV, Phulbani <br>(2017–2019)</p>
-            </div>
-          </div>
-        </div>
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front"><img src="images/jnv.jpg" /></div>
-            <div class="flip-card-back">
-              <p>High School - JNV, Phulbani <br>(2012–2017)</p>
-            </div>
-          </div>
-        </div>
-        
-      </div>
-    </section>
+/* ---------- Skills Section ---------- */
+#skills {
+  margin-top: 40px; /* less gap from previous section */
+  padding: 25px 0;  /* smaller vertical padding */
+  overflow: hidden;
+  position: relative;
+}
 
-    <!-- Internship -->
-    <section id="internship">
-      <h2 class="section-heading">Training & Internships</h2>
-      <div class="card-grid">
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front"><img src="images/cdac.jpg" /></div>
-            <div class="flip-card-back">
-              <p>C-DAC  <br>Intern<br>May 2024 - July 2024</p>
-            </div>
-          </div>
-        </div>
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front"><img src="images/sac.jpg" /></div>
-            <div class="flip-card-back">
-              <p>SAC, ISRO  <br>Intern<br>Sep 2022 - Nov 2022</p>
-            </div>
-          </div>
-        </div>
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front"><img src="images/sac.jpg" /></div>
-            <div class="flip-card-back">
-              <p>SAC, ISRO  <br>Trainee<br> Jun 2022</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+/* Container holding the scrolling track */
+.skills-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 90px; /* reduced height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    <!-- Projects -->
-    <section id="projects">
-      <h2 class="section-heading">Projects</h2>
-      <div class="card-grid">
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front"><img src="images/proj1.jpg" /></div>
-            <div class="flip-card-back">
-              <p>MTP</p>
-            </div>
-          </div>
-        </div>
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front"><img src="images/proj1.jpg" /></div>
-            <div class="flip-card-back">
-              <p>BTP</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+/* The scrolling track */
+.skills-track {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* tighter spacing */
+  animation: scroll-skills 18s linear infinite; /* faster scroll */
+}
 
-    <!-- Experience -->
-    <section id="experience">
-      <h2 class="section-heading">Experience</h2>
-      <div class="card-grid">
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front"><img src="images/ruvision.jpg" /></div>
-            <div class="flip-card-back">
-              <p>Consultant - Weather and Climate</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+/* Each skill box */
+.skill-box {
+  min-width: 120px; /* smaller width */
+  padding: 6px 12px; /* reduced padding */
+  text-align: center;
+  font-size: 14px; /* smaller text */
+  color: #00e0ff;
+  border: 1px solid rgba(0, 224, 255, 0.4);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 6px rgba(0, 224, 255, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  white-space: nowrap;
+}
 
-    <!-- Contact -->
-    <section id="contact">
-      <h2 class="section-heading">Connect With Me</h2>
-      <div class="icon-container">
-        <a href="https://www.instagram.com/"
-          ><img
-            class="icon"
-            src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
-        /></a>
-        <a href="https://www.whatsapp.com/"
-          ><img
-            class="icon"
-            src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-        /></a>
-        <a href="https://www.linkedin.com/"
-          ><img
-            class="icon"
-            src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
-        /></a>
-      </div>
-    </section>
+/* Highlighted skill at center (active state) */
+.skill-box.active {
+  transform: scale(1.5);
+  background: rgba(0, 224, 255, 0.2);
+  box-shadow: 0 0 12px rgba(0, 224, 255, 0.5);
+}
 
-    <!-- Mobile Menu Script -->
-    <script>
-      const toggle = document.getElementById("menu-toggle");
-      const links = document.getElementById("nav-links");
-      toggle.addEventListener("click", () => {
-        links.classList.toggle("active");
-      });
-    </script>
-  </body>
+/* Smooth horizontal scroll animation */
+@keyframes scroll-skills {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-30%);
+  }
+}
+
+/* Edge gradient fade for smooth transition */
+.skills-container::before,
+.skills-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 60px; /* smaller fade edges */
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.skills-container::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(10, 25, 49, 1), transparent);
+}
+
+.skills-container::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(10, 25, 49, 1), transparent);
+}
+
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="title">My Portfolio</div>
+  <div class="menu-toggle" id="menu-toggle">☰</div>
+  <div class="nav-links" id="nav-links">
+    <a href="#intro">About</a>
+    <a href="#education">Education</a>
+    <a href="#internship">Internship</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- Intro -->
+<section id="intro" class="intro-section">
+  <div class="intro-text">
+    <h1>Hi, I'm <span class="highlight">Bikash Ranjan Behera</span></h1>
+    <p>A passionate developer specializing in Water Resources Engineering and Climate modelling.</p>
+  </div>
+  <div class="intro-photo">
+    <img src="images/me.jpg" alt="My Photo" />
+  </div>
+</section>
+
+<!-- Education -->
+<section id="education">
+  <h2 class="section-heading">Education</h2>
+  <div class="card-grid">
+    <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="images/iitkgp.jpg" /></div><div class="flip-card-back"><p>M.Tech – IIT Kharagpur<br>(2023–2025)<br>Land and Water Resources Engineering<br>OGPA: 9.018</p></div></div></div>
+    <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="images/caet.jpg" /></div><div class="flip-card-back"><p>B.Tech - CAET, Bhubaneswar<br>(2019–2023)<br>Agricultural Engineering<br>OGPA: 8.093</p></div></div></div>
+    <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="images/jnv.jpg" /></div><div class="flip-card-back"><p>Intermediate - JNV, Phulbani<br>(2017–2019)<br>Science<br>Percentage: 83.4%</p></div></div></div>
+    <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="images/jnv.jpg" /></div><div class="flip-card-back"><p>High School - JNV, Phulbani<br>(2012–2017)<br>CGPA: 10</p></div></div></div>
+  </div>
+</section>
+
+<!-- Internship -->
+<section id="internship">
+<h2 class="section-heading">Training & Internships</h2>
+<div class="card-grid">
+<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="images/cdac.jpg" /></div><div class="flip-card-back" data-preview="images/cert_cdac.jpg"><p>C-DAC<br>Intern<br>May 2024 - July 2024</p></div></div></div>
+<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="images/sac.jpg" /></div><div class="flip-card-back" data-preview="images/cert_sac.jpg"><p>SAC, ISRO<br>Intern<br>Sep 2022 - Nov 2022</p></div></div></div>
+<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="images/sac.jpg" /></div><div class="flip-card-back" data-preview="images/cert_sac.jpg"><p>SAC, ISRO<br>Trainee<br>Jun 2022</p></div></div></div>
+<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="images/GoO.jpg" /></div><div class="flip-card-back" data-preview="images/cert_goo.jpg"><p>Watersheds, Govt of Odisha<br>Trainee<br>May 2021 - June 2021</p></div></div></div>
+</div>
+</section>
+
+<!-- Certifications -->
+<section id="certifications">
+<h2 class="section-heading">Certifications and Badges</h2>
+<div class="cert-scroll">
+<div class="scroll-track">
+  <!-- need duplicates of following item set -->
+  <div class="cert-item card" data-preview="images/ds_pw.jpg"><img src="images/ds.jpg" alt="Certification 1" /></div>
+  <div class="cert-item card" data-preview="images/wrf_udemy.jpg"><img src="images/wrf.jpg" alt="Certification 2" /></div>
+  <div class="cert-item circle" data-preview="images/ds_ibm.jpg"><img src="images/ibm.jpg" alt="Certification 3" /></div>
+  <div class="cert-item card" data-preview="images/cert_ibm_df.jpg"><img src="images/ibm_df.jpg" alt="Certification 3" /></div>
+  <div class="cert-item card" data-preview="images/cert_ibm_dv.jpg"><img src="images/ibm_dv.jpg" alt="Certification 3" /></div>
+  <div class="cert-item card" data-preview="images/cert_ibm_ml.jpg"><img src="images/ibm_ml.jpg" alt="Certification 3" /></div>
+  <div class="cert-item card" data-preview="images/cert_ibm_pd.jpg"><img src="images/ibm_pd.jpg" alt="Certification 3" /></div>
+  <div class="cert-item card" data-preview="images/cert_ibm_da.jpg"><img src="images/ibm_da.jpg" alt="Certification 3" /></div>
+  <div class="cert-item card" data-preview="images/cert_ibm_ai.jpg"><img src="images/ibm_ai.jpg" alt="Certification 3" /></div>
+  <div class="cert-item card" data-preview="images/cert_ibm_ad.jpg"><img src="images/ibm_ad.jpg" alt="Certification 3" /></div>
+  <div class="cert-item card" data-preview="images/cert_lc_pd.jpg"><img src="images/lc_pd.jpg" alt="Certification 3" /></div>
+
+
+
+  <div class="cert-item card" data-preview="images/ds_pw.jpg"><img src="images/ds.jpg" alt="Certification 1" /></div>
+  <div class="cert-item card" data-preview="images/wrf_udemy.jpg"><img src="images/wrf.jpg" alt="Certification 2" /></div>
+  <div class="cert-item circle" data-preview="images/ds_ibm.jpg"><img src="images/ibm.jpg" alt="Certification 3" /></div>
+  <div class="cert-item card" data-preview="images/cert_ibm_df.jpg"><img src="images/ibm_df.jpg" alt="Certification 3" /></div>
+  <div class="cert-item card" data-preview="images/cert_ibm_dv.jpg"><img src="images/ibm_dv.jpg" alt="Certification 3" /></div>
+  <div class="cert-item card" data-preview="images/cert_ibm_ml.jpg"><img src="images/ibm_ml.jpg" alt="Certification 3" /></div>
+  <div class="cert-item card" data-preview="images/cert_ibm_pd.jpg"><img src="images/ibm_pd.jpg" alt="Certification 3" /></div>
+  <div class="cert-item card" data-preview="images/cert_ibm_da.jpg"><img src="images/ibm_da.jpg" alt="Certification 3" /></div>
+  <div class="cert-item card" data-preview="images/cert_ibm_ai.jpg"><img src="images/ibm_ai.jpg" alt="Certification 3" /></div>
+  <div class="cert-item card" data-preview="images/cert_ibm_ad.jpg"><img src="images/ibm_ad.jpg" alt="Certification 3" /></div>
+  <div class="cert-item card" data-preview="images/cert_lc_pd.jpg"><img src="images/lc_pd.jpg" alt="Certification 3" /></div>
+</div>
+</div>
+<div class="cert-popup" id="cert-popup">
+<img id="popup-img" src="" alt="Certification Preview" />
+</div>
+</section>
+
+<!-- Skills -->
+<section id="skills">
+  <h2 class="section-heading">Skills</h2>
+  <div class="skills-container">
+    <div class="skills-track">
+      <!-- Repeat skills twice for infinite scroll -->
+      <div class="skill-box">Python</div>
+      <div class="skill-box">C / C++</div>
+      <div class="skill-box">Machine Learning</div>
+      <div class="skill-box">Deep Learning</div>
+      <div class="skill-box">TensorFlow / Keras</div>
+      <div class="skill-box">PyTorch</div>
+      <div class="skill-box">NumPy / Pandas</div>
+      <div class="skill-box">Matplotlib / Seaborn</div>
+      <div class="skill-box">WRF Modelling</div>
+      <div class="skill-box">Remote Sensing</div>
+      <div class="skill-box">GIS</div>
+      <div class="skill-box">Shell Scripting</div>
+      <div class="skill-box">Linux</div>
+      <div class="skill-box">Git / GitHub</div>
+
+      <!-- Duplicate for smooth infinite scroll -->
+      <div class="skill-box">Python</div>
+      <div class="skill-box">C / C++</div>
+      <div class="skill-box">Machine Learning</div>
+      <div class="skill-box">Deep Learning</div>
+      <div class="skill-box">TensorFlow / Keras</div>
+      <div class="skill-box">PyTorch</div>
+      <div class="skill-box">NumPy / Pandas</div>
+      <div class="skill-box">Matplotlib / Seaborn</div>
+      <div class="skill-box">WRF Modelling</div>
+      <div class="skill-box">Remote Sensing</div>
+      <div class="skill-box">GIS</div>
+      <div class="skill-box">Shell Scripting</div>
+      <div class="skill-box">Linux</div>
+      <div class="skill-box">Git / GitHub</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Projects -->
+<section id="projects">
+<h2 class="section-heading">Projects</h2>
+<div class="card-grid">
+<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="images/MTP.jpg" /></div><div class="flip-card-back"><p>MTP</p></div></div></div>
+<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="images/BTP.jpg" /></div><div class="flip-card-back"><p>BTP</p></div></div></div>
+</div>
+</section>
+
+<!-- Experience -->
+<section id="experience">
+<h2 class="section-heading">Experience</h2>
+<div class="card-grid">
+<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="images//ruvision.jpg" /></div><div class="flip-card-back"><p>Member of Technical Staff<br>July 2025 - Present</p></div></div></div>
+<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="images/iitkgp.jpg" /></div><div class="flip-card-back"><p>Teaching Assistant (Geoinformatics)<br>July 2024 - May 2025</p></div></div></div>
+</div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <h2 class="section-heading">Connect With Me</h2>
+  <div class="icon-container">
+    <a href="mailto:bikashphy09@gmail.com">
+      <img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" alt="Email" />
+    </a>
+    <a href="https://www.instagram.com/">
+      <img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" />
+    </a>
+    <a href="https://www.whatsapp.com/">
+      <img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+    </a>
+    <a href="https://www.linkedin.com/in/bikash-ranjan-behera-14b11a233/">
+      <img class="icon" src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" />
+    </a>
+  </div>
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  // ===== Menu Toggle =====
+  const toggle = document.getElementById("menu-toggle");
+  const links = document.getElementById("nav-links");
+
+  toggle.addEventListener("click", () => {
+    links.classList.toggle("active");
+  });
+
+  // ===== Certification Popup =====
+  const certItems = document.querySelectorAll(".cert-item");
+  const popup = document.getElementById("cert-popup");
+  const popupImg = document.getElementById("popup-img");
+
+  function showPopup(imgSrc, e) {
+    popupImg.src = imgSrc;
+    popup.style.display = "block";
+
+    const offsetX = 40;
+    const offsetY = 20;
+    const popupRect = popup.getBoundingClientRect();
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
+
+    let left = e.clientX + offsetX;
+    let top = e.clientY + offsetY;
+
+    if (left + popupRect.width > viewportWidth) {
+      left = e.clientX - popupRect.width - offsetX;
+    }
+    if (top + popupRect.height > viewportHeight) {
+      top = e.clientY - popupRect.height - offsetY;
+    }
+    if (left < 0) left = 5;
+    if (top < 0) top = 5;
+
+    popup.style.left = `${left}px`;
+    popup.style.top = `${top}px`;
+  }
+
+  certItems.forEach(item => {
+    item.addEventListener("mouseenter", e => {
+      showPopup(item.getAttribute("data-preview"), e);
+    });
+    item.addEventListener("mousemove", e => {
+      showPopup(item.getAttribute("data-preview"), e);
+    });
+    item.addEventListener("mouseleave", () => {
+      popup.style.display = "none";
+    });
+  });
+
+  // ===== Flip Card Back Hover Preview =====
+  const flipBacks = document.querySelectorAll(".flip-card-back");
+  flipBacks.forEach(back => {
+    back.addEventListener("mouseenter", e => {
+      const previewSrc = back.getAttribute("data-preview");
+      if (previewSrc) showPopup(previewSrc, e);
+    });
+    back.addEventListener("mousemove", e => {
+      const previewSrc = back.getAttribute("data-preview");
+      if (previewSrc) showPopup(previewSrc, e);
+    });
+    back.addEventListener("mouseleave", () => {
+      popup.style.display = "none";
+    });
+  });
+});
+// ===== Skills Highlight (Zoom Center Effect) =====
+const track = document.querySelector(".skills-track");
+const skills = document.querySelectorAll(".skill-box");
+
+function updateSkillZoom() {
+  const container = document.querySelector(".skills-container");
+  const containerCenter = container.offsetWidth / 2;
+  skills.forEach((skill) => {
+    const rect = skill.getBoundingClientRect();
+    const skillCenter = rect.left + rect.width / 2;
+    const distance = Math.abs(containerCenter - skillCenter);
+    const scale = Math.max(1, 1.3 - distance / 400); // zoom in near center
+    const lift = (1.3 - scale) * -20; // lift slightly
+    skill.style.transform = `translateY(${lift}px) scale(${scale})`;
+    skill.style.boxShadow =
+      scale > 1.1
+        ? "0 0 20px rgba(0, 224, 255, 0.7)"
+        : "0 0 10px rgba(0, 224, 255, 0.2)";
+  });
+  requestAnimationFrame(updateSkillZoom);
+}
+updateSkillZoom();
+
+</script>
+
+
+
+</body>
 </html>
